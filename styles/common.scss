@@ -1,11 +1,18 @@
 .button {
   height: 40px;
-  border-radius: 8px;
+  border-radius: 5px;
   border: 1px solid #ccc;
   outline: none;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+  margin-left: 20px;
+  background-color: #fff;
+}
+
+hr {
+  border-bottom: none;
+  color: #ccc;
 }
 
 .icon-button {

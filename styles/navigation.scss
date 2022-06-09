@@ -1,1 +1,17 @@
 // стили навигации
+.navigation {
+  display: flex;
+  align-items: center;
+
+  &__today-btn {
+    height: 35px;
+  }
+
+  &__nav-icon {
+    margin-left: 20px;
+  }
+
+  &__displayed-month {
+    margin-left: 30px;
+  }
+}
