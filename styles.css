@@ -9,6 +9,13 @@
 .header {
   display: flex;
   align-items: end;
+  padding: 15px 0 10px 15px;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .button {
@@ -21,11 +28,6 @@
   font-weight: 500;
   margin-left: 20px;
   background-color: #fff;
-}
-
-hr {
-  border-bottom: none;
-  color: #ccc;
 }
 
 .icon-button {
@@ -82,6 +84,76 @@ hr {
 }
 .navigation__displayed-month {
   margin-left: 30px;
+}
+
+.calendar {
+  border-top: 1px solid #ccc;
+  margin-top: 55px;
+}
+.calendar__header {
+  display: flex;
+  padding-left: 60px;
+}
+.calendar__day_label {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 120px;
+  justify-content: space-around;
+  align-items: center;
+}
+.calendar__week-container {
+  display: flex;
+}
+.calendar__time-scale {
+  display: flex;
+  flex-direction: column;
+}
+.calendar__time-scale-slot__time {
+  flex: 1 1 60px;
+  padding-left: 17px;
+  font-size: 10px;
+}
+
+.day-label__day-name {
+  text-align: center;
+}
+.day-label__day-name_active {
+  color: blue;
+}
+
+.day-label__day-number {
+  font-size: 25px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+}
+.day-label__day-number_active {
+  border-radius: 50%;
+  background-color: blue;
+  color: #fff;
+}
+
+.calendar__week {
+  display: flex;
+  margin-left: 17px;
+}
+
+.calendar__day {
+  border: 1px solid #ccc;
+  width: 120px;
+}
+
+.calendar__time-slot {
+  border: 1px solid #ccc;
+  border-right: none;
+  border-left: none;
+  min-height: 60px;
+}
+
+.time-slot__time {
+  flex-basis: 60px;
 }
 
 .create-event-btn {

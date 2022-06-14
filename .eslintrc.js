@@ -7,6 +7,7 @@ module.exports = {
   },
   rules: {
     strict: 0,
+    'single quotes': true,
     'no-alert': 0,
     'no-console': 0,
     'no-constant-condition': 0,
