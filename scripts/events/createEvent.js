@@ -8,10 +8,12 @@ const closeEventFormBtn = document.querySelector('.create-event__close-btn');
 
 function clearEventForm() {
   // ф-ция должна очистить поля формы от значений
+  eventFormElem.reset();
 }
 
 function onCloseEventForm() {
-  // здесь нужно закрыть модальное окно и очистить форму
+  closeModal();
+  clearEventForm();
 }
 
 function onCreateEvent(event) {
@@ -24,8 +26,26 @@ function onCreateEvent(event) {
   // полученное событие добавляем в массив событий, что хранится в storage
   // закрываем форму
   // и запускаем перерисовку событий с помощью renderEvents
+  event.preventDefault();
+
+  const formData = Object.fromEntries(new FormData(eventFormElem));
+  const { title, date, startTime, endTime, description } = formData;
+
+  const descriptionForm = {
+    id: Math.random().toString(),
+    title,
+    description,
+    start: getDateTime(date, startTime),
+    end: getDateTime(date, endTime),
+  };
+  setItem('events', [descriptionForm]);
+  getItem('events');
+  onCloseEventForm();
+  renderEvents();
 }
 
 export function initEventForm() {
   // подпишитесь на сабмит формы и на закрытие формы
+  eventFormElem.addEventListener('submit', onCreateEvent);
+  closeEventFormBtn.addEventListener('click', onCloseEventForm);
 }
