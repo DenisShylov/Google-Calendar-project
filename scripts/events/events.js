@@ -4,17 +4,27 @@ import { openPopup, closePopup } from '../common/popup.js';
 
 const weekElem = document.querySelector('.calendar__week');
 const deleteEventBtn = document.querySelector('.delete-event-btn');
+const eventElem = document.querySelector('.event');
+const calendarTimeSlotElem = document.querySelector('.calendar__time-slot');
 
 function handleEventClick(event) {
   // если произошел клик по событию, то нужно паказать попап с кнопкой удаления
   // установите eventIdToDelete с id события в storage
-
-  // weekElem.addEventListener('click', openPopup);
+  getItem('events') || [];
   setItem('eventIdToDelete', event.id);
+
+  openPopup(event.clientX, event.clientY);
 }
 
 function removeEventsFromCalendar() {
   // ф-ция для удаления всех событий с календаря
+  const events = getItem('events') || [];
+  events.map(() => {
+    const eventElem = document.querySelector('.event');
+    if (eventElem !== null) {
+      eventElem.remove();
+    }
+  });
 }
 
 const createEventElement = (event) => {
@@ -28,7 +38,7 @@ const createEventElement = (event) => {
   const eventElem = document.createElement('div');
   eventElem.classList.add('event');
   eventElem.dataset.eventId = id;
-  eventElem.style.top = `${start.getMinutes()}px`;
+  eventElem.style.top = `${new Date(start).getMinutes()}px`;
   eventElem.style.height = `${durationInMins}px`;
 
   const eventTitleElem = document.createElement('div');
@@ -36,7 +46,9 @@ const createEventElement = (event) => {
   eventTitleElem.classList.add('event__title');
 
   const eventTimeElem = document.createElement('div');
-  eventTitleElem.textContent = `${start.getHours()}: ${start.getMinutes()} - ${end.getHours()}:${end.getMinutes()}`;
+  eventTitleElem.textContent = `${new Date(start).getHours()}: ${new Date(
+    start
+  ).getMinutes()} - ${new Date(end).getHours()}:${new Date(end).getMinutes()}`;
   eventTitleElem.classList.add('event__time');
   eventElem.append(eventTitleElem, eventTimeElem);
 
@@ -80,13 +92,16 @@ function onDeleteEvent() {
   // удаляем из массива нужное событие и записываем в storage новый массив
   // закрыть попап
   // перерисовать события на странице в соответствии с новым списком событий в storage (renderEvents)
-  // getItem('events');
-  // getItem('eventIdToDelete');
-  // setItem('events', []);
 
-  const eventsArray = getItem('events');
+  const events = getItem('events') || [];
   const eventId = getItem('eventIdToDelete');
-  console.log(eventsArray);
+
+  const filteredEvents = events.filter((event) => event.id !== eventId);
+  removeEventsFromCalendar();
+  setItem('events', filteredEvents);
+
+  closePopup();
+  renderEvents();
 }
 
 weekElem.addEventListener('click', createEventElement);

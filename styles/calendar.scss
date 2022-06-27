@@ -18,17 +18,18 @@
     display: flex;
     flex-direction: column;
     height: 100px;
-    width: 120px;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
   }
 
-  &__week-container {
-    display: flex;
+  &__body {
+    margin-top: 80px;
+    position: relative;
   }
 
-  &__day {
-    flex-grow: 1;
+  &__week-container {
+    display: flex;
   }
 
   &__time-scale {
@@ -42,56 +43,54 @@
     }
   }
 
-  &__body {
-    margin-top: 80px;
-    position: relative;
-  }
-
   &__week {
+    display: flex;
+    margin-left: 17px;
     flex-grow: 1;
   }
-}
 
-.day-label__day-name {
-  text-align: center;
+  &__day {
+    border: 1px solid #ccc;
 
-  &_active {
-    color: blue;
+    max-width: 100%;
+    flex-grow: 1;
+  }
+
+  &__time-slot {
+    position: relative;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-left: none;
+    min-height: 60px;
+
+    &__time {
+      flex-basis: 60px;
+    }
   }
 }
 
-.day-label__day-number {
-  font-size: 25px;
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
-  text-align: center;
+.day-label {
+  &__day-name {
+    text-align: center;
 
-  &_active {
-    border-radius: 50%;
-    background-color: blue;
-    color: #fff;
+    &_active {
+      color: blue;
+    }
   }
-}
-.calendar__week {
-  display: flex;
-  margin-left: 17px;
-}
-.calendar__day {
-  border: 1px solid #ccc;
 
-  width: 120px;
-}
-.calendar__time-slot {
-  position: relative;
-  border: 1px solid #ccc;
-  border-right: none;
-  border-left: none;
-  min-height: 60px;
-}
+  &__day-number {
+    font-size: 25px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
 
-.time-slot__time {
-  flex-basis: 60px;
+    &_active {
+      border-radius: 50%;
+      background-color: blue;
+      color: #fff;
+    }
+  }
 }
 
 .current-time {
