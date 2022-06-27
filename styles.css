@@ -65,9 +65,14 @@
 .popup__content {
   position: absolute;
   background: #fff;
-  padding: 16px;
+  padding: 7px;
   border: 1px solid #ccc;
   border-radius: 8px;
+}
+
+.delete-event-btn {
+  border: none;
+  background-color: #fff;
 }
 
 .hidden {
@@ -116,15 +121,6 @@
 }
 .calendar__week-container {
   display: flex;
-}
-.calendar__time-scale {
-  display: flex;
-  flex-direction: column;
-}
-.calendar__time-scale-slot__time {
-  flex: 1 1 60px;
-  padding-left: 17px;
-  font-size: 10px;
 }
 .calendar__week {
   display: flex;
@@ -185,6 +181,70 @@
   position: absolute;
   border-radius: 50%;
   height: 10px;
+}
+
+.calendar__time-scale {
+  display: flex;
+  flex-direction: column;
+}
+.calendar__time-scale-slot__time {
+  flex: 1 1 60px;
+  padding-left: 17px;
+  font-size: 10px;
+}
+
+.create-event {
+  position: relative;
+}
+.create-event__close-btn {
+  transform: rotate(45deg);
+  font-size: 27px;
+  background-color: transparent;
+  position: absolute;
+  right: 4px;
+  top: -6px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 360px;
+  position: relative;
+}
+.event-form input[type=text] {
+  border-bottom: 1px solid #1a73e8;
+  margin: 30px 0 50px 30px;
+}
+.event-form__field {
+  line-height: 26px;
+  border: none;
+}
+.event-form__field[name=description] {
+  margin: 46px 0 0 30px;
+  height: 100px;
+}
+.event-form__time {
+  box-sizing: border-box;
+  margin: 0 0 0 30px;
+  padding: 0;
+  border: none;
+}
+.event-form__submit-btn {
+  border: none;
+  background-color: #1a73e8;
+  position: absolute;
+  bottom: 0px;
+  right: -3px;
+  width: 120px;
+  height: 35px;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .create-event-btn {

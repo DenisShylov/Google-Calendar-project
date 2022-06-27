@@ -32,17 +32,6 @@
     display: flex;
   }
 
-  &__time-scale {
-    display: flex;
-    flex-direction: column;
-
-    &-slot__time {
-      flex: 1 1 60px;
-      padding-left: 17px;
-      font-size: 10px;
-    }
-  }
-
   &__week {
     display: flex;
     margin-left: 17px;
