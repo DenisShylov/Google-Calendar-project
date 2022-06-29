@@ -15,24 +15,6 @@ const generateDay = () => {
   return timeSlots;
 };
 
-const createLineTime = () => {
-  const currentTimeMinutes = new Date().getMinutes();
-
-  const lineTimeElem = document.createElement('div');
-  lineTimeElem.classList.add('current-time__line');
-
-  const circleTimeElem = document.createElement('div');
-  circleTimeElem.classList.add('current-time__circle');
-
-  const currentTimeElem = document.createElement('div');
-  currentTimeElem.classList.add('current-time');
-
-  currentTimeElem.style.top = `${currentTimeMinutes}px`;
-  currentTimeElem.append(lineTimeElem, circleTimeElem);
-
-  return lineTimeElem;
-};
-
 export const renderWeek = () => {
   // функция должна сгенерировать разметку недели в виде строки и вставить ее на страницу (в .calendar__week)
   // разметка недели состоит из 7 дней (.calendar__day) отображаемой недели

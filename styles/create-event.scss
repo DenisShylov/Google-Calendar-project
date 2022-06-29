@@ -3,12 +3,10 @@
   position: relative;
 
   &__close-btn {
+    margin-left: 93%;
     transform: rotate(45deg);
     font-size: 27px;
     background-color: transparent;
-    position: absolute;
-    right: 4px;
-    top: -6px;
     cursor: pointer;
     outline: none;
     border: none;

@@ -10,10 +10,12 @@ const calendarTimeSlotElem = document.querySelector('.calendar__time-slot');
 function handleEventClick(event) {
   // если произошел клик по событию, то нужно паказать попап с кнопкой удаления
   // установите eventIdToDelete с id события в storage
-  getItem('events') || [];
+  const events = getItem('events') || [];
+
   setItem('eventIdToDelete', event.id);
 
   openPopup(event.clientX, event.clientY);
+  console.log(getItem('eventIdToDelete'));
 }
 
 function removeEventsFromCalendar() {
@@ -96,7 +98,7 @@ function onDeleteEvent() {
   const events = getItem('events') || [];
   const eventId = getItem('eventIdToDelete');
 
-  const filteredEvents = events.filter((event) => event.id !== eventId);
+  const filteredEvents = events.filter((event) => event.id === eventId);
   removeEventsFromCalendar();
   setItem('events', filteredEvents);
 
